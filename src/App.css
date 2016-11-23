@@ -1,0 +1,258 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+  transition: .25s ease-in-out;
+}
+
+*::selection {
+  background: #8c989f;
+  color: white;
+}
+
+.hidden {
+  opacity: 0 !important;
+  position: absolute;
+  top: -99999999;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper-dropdown {
+    /* Size and position */
+    position: relative; /* Enable absolute positioning for children and pseudo elements */
+    width: 100%;
+    padding: 10px;
+    margin: 0 auto;
+
+    /* Styles */
+    // background: #9bc7de;
+    color: #fff;
+    outline: none;
+    cursor: pointer;
+
+}
+.wrapper-dropdown:after {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    margin-top: -6px;
+    border-width: 6px 0 6px 6px;
+    border-style: solid;
+    border-color: transparent #fff;    
+}
+.wrapper-dropdown-1 {
+  padding: 0 6px;
+}
+.wrapper-dropdown-1 * {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+     -khtml-user-select: none; /* Konqueror */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  not supported by any browser */
+}
+.wrapper-dropdown-1 .dropdown {
+  /* Size & position */
+    position: absolute;
+    
+    // position: relative; 
+        float: left;
+        top: 50%;
+    left: 0; /* Size */
+    
+
+    /* Styles */
+    background: #fff;
+    
+    /* Hiding */
+    opacity: 0;
+    pointer-events: none;
+  
+}
+.wrapper-dropdown-1 ul {
+
+  list-style-type: none;
+  padding: 0;
+  border: 1px solid #ddd;
+  // width: 300px;
+  z-index: 22;
+
+}
+.wrapper-dropdown-1 .dropdown li:last-of-type {
+  border-bottom: none;
+}
+.wrapper-dropdown-1 .dropdown li {
+    display: block;
+    // position: relative;
+    text-decoration: none;
+    color: #8c989f;
+    border-bottom: 1px solid #ddd;
+    padding: 5px;
+    white-space: nowrap;
+    // padding: 10px 20px;
+
+}
+
+/* Hover state */
+.wrapper-dropdown-1 .dropdown li:hover {
+    background: #f5f8fa;
+}
+
+/* Active state */
+.wrapper-dropdown-1.active .dropdown {
+    opacity: 1;
+    background: #fff;
+    pointer-events: auto;
+}
+
+.wrapper-dropdown-1.active:after {
+    border-color: #9bc7de transparent;
+    border-width: 6px 6px 0 6px ;
+    margin-top: -3px;
+}
+
+.wrapper-dropdown-1.active {
+  background: #f5f8fa;
+  // background: linear-gradient(to right, #9bc7de 0%, #9bc7de 78%, #ffffff 78%, #ffffff 100%);
+}     
+
+
+/*
+
+Calc styles
+*/
+
+#FeeCalculator {
+  max-width: 690px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 960px;
+  font-family: roboto;
+  font-weight: 200;
+  font-size: 32px;
+  line-height: 60px;
+  color: #8c989f;
+}
+#FeeCalculator .input-container {
+  display: block;
+}
+#FeeCalculator .input-container .input {
+  border-bottom: 1px dashed #007a73;
+  margin-left: 6px;
+  margin-right: 6px;
+  display: inline-block;
+  position: relative;
+}
+#FeeCalculator .input-container .input:hover {
+  border-bottom: 1px dashed #e6711b;
+  color: #e6711b;
+  cursor: pointer;
+}
+#FeeCalculator .input-container .input input {
+  color: #2a5781;
+  max-width: 280px;
+}
+#FeeCalculator .input-container .input input.active {
+  z-index: 5000;
+  border-bottom: 1px dashed #004f4a;
+  color: #004f4a;
+  cursor: default;
+}
+#FeeCalculator input[type="text"], #FeeCalculator select {
+
+  border: none;
+  outline: none;
+  margin: 0;
+  // margin: 0 6px;
+  font-weight: 200;
+  width: 100%;
+  // font-size: 40px;
+  font-size: 32px;
+  line-height: 60px;
+  position: absolute;
+  right: 0;
+  left: 0;
+  display: block;
+  -webkit-appearance:none; 
+  background: transparent;
+  color: #2a5781;
+
+}
+
+#FeeCalculator select {
+  // display: flex;
+  // font-size: 18px;
+  // color: red;
+}
+#FeeCalculator button {
+  display: block;
+  background: white;
+  border: none;
+  border-left: 8px solid #e6711b;
+  padding: 10px 55px 10px 20px;
+  font-size: 30px;
+  font-weight: 200;
+  margin: 30px 0 0 0;
+  box-shadow: inset 0px 0px 0px #e6711b;
+  position: relative;
+}
+#FeeCalculator button i {
+  transition: 0s 0s ease-in-out;
+}
+#FeeCalculator button:after {
+  content: '\f105';
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 55px;
+  width: 55px;
+  font-family: FontAwesome;
+  line-height: 55px;
+  text-align: center;
+  color: #e6711b;
+}
+#FeeCalculator button:hover {
+  box-shadow: inset 350px 0 0 #e6711b;
+  color: white;
+  cursor: pointer;
+}
+#FeeCalculator button:hover:after {
+  color: white;
+}
+
+/* PLACES STYLE */
+/* Main input wrapper */
+/* The algolia-places input */
+/* The style of the svg icons when the input is on hover */
+/* The dropdown style */
+.ap-dropdown-menu {
+  width: auto;
+  font-size: 16px;
+}
+
+/* The suggestions style */
+/* The highlighted names style */
+/* The addresses style */
+/* The icons of each suggestions ( can be a building or a pin ) */
+/* The style of the svg inside the .ap-suggestion-icon */
+/* The icons inside the input ( can be a pin or a cross ) */
+/* The style of the svg inside the .ap-input-icon */
+/* .a-cursor is the class a suggestion go on hover */
+/* The style of the svg icon, when the .ap-suggestion is on hover */
+/* The styles of the Algolia Places input footer */
+/* The styles of the Algolia Places input footer links */
+/* The styles of the Algolia Places input footer svg icons */
+/* The styles of the Algolia Places input footer on hover */
