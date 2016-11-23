@@ -16,7 +16,7 @@
 
 body {
   margin: 0;
-  padding: 0;
+  padding: 1em;
   height: 100vh;
   background-color: #fff;
   display: flex;
@@ -138,12 +138,23 @@ Calc styles
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 960px;
+  max-width: 100%;
   font-family: roboto;
   font-weight: 200;
   font-size: 32px;
   line-height: 60px;
   color: #8c989f;
+}
+@media (max-width: 567px){
+  #FeeCalculator {
+    zoom: 0.7;
+  }
+  .wrapper-dropdown-1 .dropdown {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 50vh;
+  }
 }
 #FeeCalculator .input-container {
   display: block;
