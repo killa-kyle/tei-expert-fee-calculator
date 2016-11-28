@@ -14,7 +14,7 @@ export class FeeIntro extends React.Component {
       this.getArticle = this.getArticle.bind(this)
     }
     componentDidMount() {
-      console.log(AvsAn.query('test'))
+      
     }
     nextStep(e) {
       e.preventDefault()      
@@ -36,16 +36,15 @@ export class FeeIntro extends React.Component {
             this.setState({dropdownClass: 'wrapper-dropdown-1'})
         }
     }
-    getArticle(){
-      // console.log(AvsAn.query)
-      // return AvsAn.query(this.props.expertType)
+    getArticle(queryTerm){
+      return AvsAn.query(queryTerm).article
     }
   render() {
     
     return (
       <div className="animated fadeIn">
             <span id="searchKey" className="input-container">
-               I'm looking for {this.getArticle()}
+               I'm looking for {this.getArticle(this.state.expertType)}
               <span className="input">
                 {/*<input type="text" placeholder={this.props.fieldValues.expertType} ref="expertType"/>*/}
 {/*                <select value={this.state.value} onChange={this.updateSelection}>
