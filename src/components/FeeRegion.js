@@ -1,5 +1,5 @@
 import React from 'react'
-
+import '../animate.css' 
 
 
 export class FeeRegion extends React.Component {
@@ -16,22 +16,17 @@ export class FeeRegion extends React.Component {
 
     nextStep(e) {
       e.preventDefault()      
-      var data = {
-        expertLocation: this.state.expertLocation
-      }
 
-      this.props.saveValues(data)
       this.props.nextStep()
     }
     updateSelection(e) {        
-        console.log(e.target.innerHTML)
-        this.setState({expertLocation: e.target.innerHTML});
-        
-        // ref dropdown and lis 
-        const wrapperDropdown = document.querySelector('.wrapper-dropdown-1')
-        const listItems = document.querySelectorAll('.dropdown li')
+        console.log(e.target.innerHTML)        
+        var data = {
+          expertLocation: e.target.innerHTML
+        }
 
-  
+        this.props.saveValues(data)
+        
             
         
         //expand dropdown to largest item width
@@ -50,17 +45,12 @@ export class FeeRegion extends React.Component {
     return (
       <div>
             <span id="searchKey" className="input-container text-center">
-               I'm looking for a {this.props.expertType} Expert Witness <br/> in the 
+               I'm looking for a {this.props.expertType} Expert Witness <br/>
+               <div className="animated fadeInUp">
+               in the 
               <span className="input">
-                {/*<input type="text" placeholder={this.props.fieldValues.expertType} ref="expertType"/>*/}
-{/*                <select value={this.state.value} onChange={this.updateSelection}>
-                  <option value={this.props.fieldValues.expertType}>{this.props.fieldValues.expertType}</option>
-                  <option value="Accident Reconstruction">Accident Reconstruction</option>
-                  <option value="coconut">Coconut</option>
-                  <option value="mango">Mango</option>
-                </select>*/}
                 <div className={this.state.dropdownClass} onClick={this.toggleDropdown}>
-                    <span>{this.state.expertLocation}</span>
+                    <span>{this.props.expertLocation}</span>
                     <ul className="dropdown">
                         <li onClick={this.updateSelection}>Southeast</li>
                         <li onClick={this.updateSelection}>Midwest</li>
@@ -70,6 +60,7 @@ export class FeeRegion extends React.Component {
                 </div>
               </span>
                 Region
+                </div>
             </span>            
 
             <button className="btn-primary pull-left btn-back" onClick={this.props.previousStep}>BACK</button>

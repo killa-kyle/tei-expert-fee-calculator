@@ -1,6 +1,6 @@
 import React from 'react'
-
-
+import '../animate.css' 
+import AvsAn from '../utils.js'
 
 export class FeeIntro extends React.Component {
     constructor(props){
@@ -11,18 +11,10 @@ export class FeeIntro extends React.Component {
       this.nextStep = this.nextStep.bind(this)
       this.updateSelection = this.updateSelection.bind(this)
       this.toggleDropdown = this.toggleDropdown.bind(this)
+      this.getArticle = this.getArticle.bind(this)
     }
     componentDidMount() {
-      // Get the components DOM node
-      var elem = React.findDOMNode(this);
-      // Set the opacity of the element to 0
-      elem.style.opacity = 0;
-      window.requestAnimationFrame(function() {
-          // Now set a transition on the opacity
-          elem.style.transition = "opacity 250ms";
-          // and set the opacity to 1
-          elem.style.opacity = 1;
-      });
+      console.log(AvsAn.query('test'))
     }
     nextStep(e) {
       e.preventDefault()      
@@ -36,32 +28,24 @@ export class FeeIntro extends React.Component {
     updateSelection(e) {        
         console.log(e.target.innerHTML)
         this.setState({expertType: e.target.innerHTML});
-        
-
-
-        // ref dropdown and lis 
-        const wrapperDropdown = document.querySelector('.wrapper-dropdown-1')
-        const listItems = document.querySelectorAll('.dropdown li')
-
-        
-            
-        
-        //expand dropdown to largest item width
-        // wrapperDropdown.style.width = '900px'
     }
     toggleDropdown() {
-        if(this.state.dropdownClass == 'wrapper-dropdown-1') {
+        if(this.state.dropdownClass === 'wrapper-dropdown-1') {
             this.setState({dropdownClass: 'wrapper-dropdown-1 active'})
         } else {
             this.setState({dropdownClass: 'wrapper-dropdown-1'})
         }
     }
+    getArticle(){
+      // console.log(AvsAn.query)
+      // return AvsAn.query(this.props.expertType)
+    }
   render() {
     
     return (
-      <div>
+      <div className="animated fadeIn">
             <span id="searchKey" className="input-container">
-               I'm looking for a
+               I'm looking for {this.getArticle()}
               <span className="input">
                 {/*<input type="text" placeholder={this.props.fieldValues.expertType} ref="expertType"/>*/}
 {/*                <select value={this.state.value} onChange={this.updateSelection}>

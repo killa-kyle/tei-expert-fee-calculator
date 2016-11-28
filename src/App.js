@@ -54,7 +54,8 @@ class App extends Component {
         return <FeeRegion     nextStep={this.nextStep}
                               previousStep={this.previousStep}
                               saveValues={this.saveValues} 
-                              expertType={this.state.expertType}/>               
+                              expertType={this.state.expertType}
+                              expertLocation={this.state.expertLocation}/>               
       case 2:
         return <div>2</div>
       case 3:
