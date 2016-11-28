@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import FeeIntro from './components/FeeIntro'
+import FeeRegion from './components/FeeRegion'
 import './App.css'
 class App extends Component {
   constructor(){
     super()
     this.state = {
       step: 0,
-      expertType     : 'Medical',
-      expertLocation    : 'New York, NY'
+      expertType     : 'Accident Reconstruction',
+      expertLocation    : 'Northeast'
     }
 
     this.saveValues = this.saveValues.bind(this)
@@ -45,12 +46,15 @@ class App extends Component {
   showStep() {
     switch (this.state.step) {
       case 0:
-        return <FeeIntro fieldValues={this.fieldValues}
+        return <FeeIntro expertType={this.state.expertType}
                               nextStep={this.nextStep}
                               previousStep={this.previousStep}
                               saveValues={this.saveValues} />
       case 1:
-        return <div>I'm Looking for a {this.state.expertType} Expert Witness in {this.state.expertLocation}</div>               
+        return <FeeRegion     nextStep={this.nextStep}
+                              previousStep={this.previousStep}
+                              saveValues={this.saveValues} 
+                              expertType={this.state.expertType}/>               
       case 2:
         return <div>2</div>
       case 3:
@@ -64,6 +68,7 @@ class App extends Component {
       <main id="FeeCalculator">
         {/*<span className="progress-step">Step {this.state.step}</span>*/}
         {/*<progress className="progress"></progress>*/}
+        <h1 className="step-heading">Expert Fee Calculator</h1>
         {this.showStep()}
       </main>
 

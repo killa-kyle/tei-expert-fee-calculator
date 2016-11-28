@@ -114,6 +114,8 @@ body {
     opacity: 1;
     background: #fff;
     pointer-events: auto;
+    max-height: 250px;
+    overflow-y: scroll;
 }
 
 .wrapper-dropdown-1.active:after {
@@ -207,22 +209,25 @@ Calc styles
   // font-size: 18px;
   // color: red;
 }
-#FeeCalculator button {
+#FeeCalculator .btn-next,.btn-back {
   display: block;
   background: white;
   border: none;
-  border-left: 8px solid #e6711b;
+  /*border-left: 8px solid #e6711b;*/
+  color:#fff;
   padding: 10px 55px 10px 20px;
   font-size: 30px;
-  font-weight: 200;
+  font-weight: 300;
   margin: 30px 0 0 0;
   box-shadow: inset 0px 0px 0px #e6711b;
+  box-shadow: inset 350px 0 0 #e6711b;
   position: relative;
 }
-#FeeCalculator button i {
+
+#FeeCalculator .btn-next i {
   transition: 0s 0s ease-in-out;
 }
-#FeeCalculator button:after {
+#FeeCalculator .btn-next:after {
   content: '\f105';
   display: block;
   position: absolute;
@@ -233,16 +238,42 @@ Calc styles
   font-family: FontAwesome;
   line-height: 55px;
   text-align: center;
-  color: #e6711b;
+  color: #fff;
 }
-#FeeCalculator button:hover {
+.btn-back {
+  padding: 10px 20px 10px 55px;
+}
+
+#FeeCalculator .btn-back:before {
+  content: '\f104';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 55px;
+  width: 55px;
+  font-family: FontAwesome;
+  line-height: 55px;
+  text-align: center;
+  color: #fff;
+}
+#FeeCalculator .btn-next:hover {
   box-shadow: inset 350px 0 0 #e6711b;
   color: white;
   cursor: pointer;
 }
-#FeeCalculator button:hover:after {
+#FeeCalculator .btn-next:hover:after {
   color: white;
 }
+
+
+
+
+.step-heading {
+  font-size: 1.5em;
+  font-weight: 600;
+}
+
 
 /* PLACES STYLE */
 /* Main input wrapper */
