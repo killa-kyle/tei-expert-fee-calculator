@@ -1,3 +1,4 @@
+// https://github.com/MicheleBertoli/react-count-to
 import React from 'react';
 
 const Counter = React.createClass({
