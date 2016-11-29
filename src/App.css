@@ -185,22 +185,22 @@ Calc styles
 }
 #FeeCalculator input[type="text"], #FeeCalculator select {
 
-  border: none;
-  outline: none;
-  margin: 0;
-  // margin: 0 6px;
-  font-weight: 200;
-  width: 100%;
-  // font-size: 40px;
-  font-size: 32px;
-  line-height: 60px;
-  position: absolute;
-  right: 0;
-  left: 0;
-  display: block;
-  -webkit-appearance:none; 
-  background: transparent;
-  color: #2a5781;
+  // border: none;
+  // outline: none;
+  // margin: 0;
+  // // margin: 0 6px;
+  // font-weight: 200;
+  // width: 100%;
+  // // font-size: 40px;
+  // font-size: 32px;
+  // line-height: 60px;
+  // position: absolute;
+  // right: 0;
+  // left: 0;
+  // display: block;
+  // -webkit-appearance:none; 
+  // background: transparent;
+  // color: #2a5781;
 
 }
 
@@ -215,7 +215,7 @@ Calc styles
   border: none;
   /*border-left: 8px solid #e6711b;*/
   color:#fff;
-  padding: 10px 55px 10px 20px;
+  padding: 0px 55px 0px 20px;
   font-size: 30px;
   font-weight: 300;
   margin: 30px 0 0 0;
@@ -241,7 +241,7 @@ Calc styles
   color: #fff;
 }
 .btn-back {
-  padding: 10px 20px 10px 55px;
+  padding: 0px 20px 0px 55px;
 }
 
 #FeeCalculator .btn-back:before {
@@ -275,26 +275,37 @@ Calc styles
 }
 
 
-/* PLACES STYLE */
-/* Main input wrapper */
-/* The algolia-places input */
-/* The style of the svg icons when the input is on hover */
-/* The dropdown style */
-.ap-dropdown-menu {
-  width: auto;
-  font-size: 16px;
+/* React Text Select */
+.react-textselect {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.33);
+  overflow: hidden;
+  padding-right: 1em;
+  margin-right: .17em;
+  cursor: pointer;
+  position: relative;
 }
-
-/* The suggestions style */
-/* The highlighted names style */
-/* The addresses style */
-/* The icons of each suggestions ( can be a building or a pin ) */
-/* The style of the svg inside the .ap-suggestion-icon */
-/* The icons inside the input ( can be a pin or a cross ) */
-/* The style of the svg inside the .ap-input-icon */
-/* .a-cursor is the class a suggestion go on hover */
-/* The style of the svg icon, when the .ap-suggestion is on hover */
-/* The styles of the Algolia Places input footer */
-/* The styles of the Algolia Places input footer links */
-/* The styles of the Algolia Places input footer svg icons */
-/* The styles of the Algolia Places input footer on hover */
+.react-textselect::after {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  display: block;
+  content: '';
+  height: 0;
+  width: 0;
+  border: .33em solid transparent;
+  border-top: 0.33em solid rgba(0, 0, 0, 0.33);
+  margin-top: -0.17em;
+}
+.react-textselect-input {
+  font-size: 1.2em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  opacity: 0;
+  z-index: 1;
+}
+.react-textselect.bright::after {
+  border-top: 0.33em solid rgba(255, 255, 255, 0.33);
+}

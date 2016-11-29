@@ -63,8 +63,8 @@ export class FeeRegion extends React.Component {
                 </div>
             </span>            
 
-            <button className="btn-primary pull-left btn-back" onClick={this.props.previousStep}>BACK</button>
-            <button className="btn-primary pull-right btn-next" onClick={this.nextStep}>NEXT</button>
+            <button className="pull-left btn-back" onClick={this.props.previousStep}>BACK</button>
+            <button className="pull-right btn-next" onClick={this.nextStep}>NEXT</button>
       </div>
     )
   }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import FeeIntro from './components/FeeIntro'
 import FeeRegion from './components/FeeRegion'
+import FeeTotal from './components/FeeTotal'
 import './App.css'
 class App extends Component {
   constructor(){
@@ -57,7 +58,11 @@ class App extends Component {
                               expertType={this.state.expertType}
                               expertLocation={this.state.expertLocation}/>               
       case 2:
-        return <div>2</div>
+        return <FeeTotal      nextStep={this.nextStep}
+                              previousStep={this.previousStep}
+                              saveValues={this.saveValues} 
+                              expertType={this.state.expertType}
+                              expertLocation={this.state.expertLocation}/> 
       case 3:
         return <div>3</div>    
       default: 

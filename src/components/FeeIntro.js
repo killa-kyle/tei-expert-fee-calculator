@@ -1,12 +1,16 @@
 import React from 'react'
 import '../animate.css' 
-import AvsAn from '../utils.js'
 
+import AvsAn from '../utils.js'
+import TextSelect from './TextSelect'
+
+const expertCategoryArray = ['Accident Reconstruction', 'Radiology', 'Internal Medicine','Intellectual Property and Patent', 'Electrical Engineering', 'Product Liability']
 export class FeeIntro extends React.Component {
     constructor(props){
       super(props)
       this.state = { expertType: this.props.expertType,        
-        dropdownClass: 'wrapper-dropdown-1'
+        dropdownClass: 'wrapper-dropdown-1',
+        selectedOption: 0
       }
       this.nextStep = this.nextStep.bind(this)
       this.updateSelection = this.updateSelection.bind(this)
@@ -26,8 +30,12 @@ export class FeeIntro extends React.Component {
       this.props.nextStep()
     }
     updateSelection(e) {        
-        console.log(e.target.innerHTML)
-        this.setState({expertType: e.target.innerHTML});
+        console.log(e.target.value)
+
+        // this.setState({expertType: e.target.innerHTML});
+        this.setState({selectedOption: e.target.value});
+        this.setState({expertType: this.SelectDropdown.props.options[e.target.value]})
+        
     }
     toggleDropdown() {
         if(this.state.dropdownClass === 'wrapper-dropdown-1') {
@@ -44,15 +52,12 @@ export class FeeIntro extends React.Component {
     return (
       <div className="animated fadeIn">
             <span id="searchKey" className="input-container">
-               I'm looking for {this.getArticle(this.state.expertType)}
-              <span className="input">
-                {/*<input type="text" placeholder={this.props.fieldValues.expertType} ref="expertType"/>*/}
-{/*                <select value={this.state.value} onChange={this.updateSelection}>
-                  <option value={this.props.fieldValues.expertType}>{this.props.fieldValues.expertType}</option>
-                  <option value="Accident Reconstruction">Accident Reconstruction</option>
-                  <option value="coconut">Coconut</option>
-                  <option value="mango">Mango</option>
-                </select>*/}
+               I'm looking for {this.getArticle(this.state.expertType) + ' '} 
+               <TextSelect ref={(input) => this.SelectDropdown = input}
+                 options={expertCategoryArray}
+                 active={this.state.selectedOption}
+                 onChange={this.updateSelection} />
+{/*              <span className="input">
                 <div className={this.state.dropdownClass} onClick={this.toggleDropdown}>
                     <span>{this.state.expertType}</span>
                     <ul className="dropdown">
@@ -64,11 +69,11 @@ export class FeeIntro extends React.Component {
                         <li onClick={this.updateSelection}>Product Liability</li>
                     </ul>
                 </div>
-              </span>
+              </span>*/}
                 Expert Witness
             </span>            
 
-            <button className="btn-primary pull-right btn-next" onClick={this.nextStep}>NEXT</button>
+            <button className="pull-right btn-next" onClick={this.nextStep}>NEXT</button>
 
       </div>
     )
